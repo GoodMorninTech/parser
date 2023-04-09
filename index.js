@@ -4,6 +4,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/parse', async (req, res) => {
+  res.redirect('https://github.com/GoodMorninTech/parser/');
+});
+
+app.get('/', async (req, res) => {
   const url = req.query.url;
   const result = await Parser.parse(url, { contentType: 'markdown' });
   res.json(result);
